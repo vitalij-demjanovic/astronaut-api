@@ -1,11 +1,8 @@
 # compiled output
 /dist
 /node_modules
-/prisma/seed.js
-
-# local env files
 .env
-.env*.local
+/prisma/seed.js
 
 # Logs
 logs

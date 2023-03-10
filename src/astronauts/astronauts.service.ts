@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../database/prisma.service';
+import { CreateAstronautDto } from './dto/create-astronaut.dto';
 
 @Injectable()
 export class AstronautsService {
@@ -9,7 +10,9 @@ export class AstronautsService {
 		return this.prisma.astronaut.findMany();
 	}
 
-	async create() {}
+	async createAstronaut(dto: CreateAstronautDto) {
+		return this.prisma.astronaut.create({ data: dto });
+	}
 
 	async findById() {}
 

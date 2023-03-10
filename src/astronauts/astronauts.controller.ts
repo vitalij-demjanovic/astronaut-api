@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AstronautsModel } from './astronauts.model';
 import { AstronautsService } from './astronauts.service';
+import { CreateAstronautDto } from './dto/create-astronaut.dto';
 
 @Controller('astronauts')
 export class AstronautsController {
@@ -11,6 +12,8 @@ export class AstronautsController {
 		return this.astronautsService.getAll();
 	}
 
-	@Post()
-	async create(@Body() dto: Omit<AstronautsModel, '_id'>) {}
+	@Post('create')
+	async create(@Body() dto: CreateAstronautDto) {
+		return this.astronautsService.createAstronaut(dto);
+	}
 }
