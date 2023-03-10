@@ -14,9 +14,14 @@ export class AstronautsService {
 		return this.prisma.astronaut.create({ data: dto });
 	}
 
+	async updateAstronaut(id: string, dto: CreateAstronautDto) {
+		return this.prisma.astronaut.update({
+			where: { id: Number(id) },
+			data: dto,
+		});
+	}
+
 	async findById() {}
 
 	async deleteById() {}
-
-	async updateById() {}
 }
