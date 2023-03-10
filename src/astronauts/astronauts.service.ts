@@ -21,7 +21,11 @@ export class AstronautsService {
 		});
 	}
 
-	async findById() {}
+	async findAstronaut(id: string) {
+		return this.prisma.astronaut.findUnique({ where: { id: Number(id) } });
+	}
 
-	async deleteById() {}
+	async deleteAstronaut(id: string) {
+		return this.prisma.astronaut.delete({ where: { id: Number(id) } });
+	}
 }
